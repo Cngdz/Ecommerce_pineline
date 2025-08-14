@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data # Tên schema trong database
+    tables:
+      - name: raw_orders
+      - name: raw_customers
+      # Thêm các bảng raw khác ở đây
