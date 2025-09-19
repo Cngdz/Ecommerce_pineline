@@ -1,0 +1,140 @@
+Spark Executor Command: "/usr/lib/jvm/java-17-openjdk-amd64/bin/java" "-cp" "/opt/spark/conf/:/opt/spark/jars/*" "-Xmx1024M" "-Dspark.network.timeout=600000" "-Dspark.driver.port=39291" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@c3b154099eb7:39291" "--executor-id" "0" "--hostname" "172.19.0.9" "--cores" "12" "--app-id" "app-20250918161332-0000" "--worker-url" "spark://Worker@172.19.0.9:34021" "--resourceProfileId" "0"
+========================================
+
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/18 16:13:35 INFO CoarseGrainedExecutorBackend: Started daemon with process name: 97@1f7605df29fa
+25/09/18 16:13:35 INFO SignalUtils: Registering signal handler for TERM
+25/09/18 16:13:35 INFO SignalUtils: Registering signal handler for HUP
+25/09/18 16:13:35 INFO SignalUtils: Registering signal handler for INT
+25/09/18 16:13:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/09/18 16:13:35 INFO SecurityManager: Changing view acls to: airflow
+25/09/18 16:13:35 INFO SecurityManager: Changing modify acls to: airflow
+25/09/18 16:13:35 INFO SecurityManager: Changing view acls groups to: 
+25/09/18 16:13:35 INFO SecurityManager: Changing modify acls groups to: 
+25/09/18 16:13:35 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+25/09/18 16:13:36 INFO TransportClientFactory: Successfully created connection to c3b154099eb7/172.19.0.13:39291 after 125 ms (0 ms spent in bootstraps)
+25/09/18 16:13:36 INFO SecurityManager: Changing view acls to: airflow
+25/09/18 16:13:36 INFO SecurityManager: Changing modify acls to: airflow
+25/09/18 16:13:36 INFO SecurityManager: Changing view acls groups to: 
+25/09/18 16:13:36 INFO SecurityManager: Changing modify acls groups to: 
+25/09/18 16:13:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+25/09/18 16:13:36 INFO TransportClientFactory: Successfully created connection to c3b154099eb7/172.19.0.13:39291 after 5 ms (0 ms spent in bootstraps)
+25/09/18 16:13:36 INFO DiskBlockManager: Created local directory at /tmp/spark-4dc63716-cfc9-4c24-87f2-accc1c2e58c6/executor-a23eb614-6bf9-47d4-8036-7150f738e3c7/blockmgr-f2d3d292-8554-42a0-b01e-9c7d52c2d796
+25/09/18 16:13:36 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/09/18 16:13:37 INFO CoarseGrainedExecutorBackend: Connecting to driver: spark://CoarseGrainedScheduler@c3b154099eb7:39291
+25/09/18 16:13:37 INFO WorkerWatcher: Connecting to worker spark://Worker@172.19.0.9:34021
+25/09/18 16:13:37 INFO TransportClientFactory: Successfully created connection to /172.19.0.9:34021 after 5 ms (0 ms spent in bootstraps)
+25/09/18 16:13:37 INFO ResourceUtils: ==============================================================
+25/09/18 16:13:37 INFO ResourceUtils: No custom resources configured for spark.executor.
+25/09/18 16:13:37 INFO WorkerWatcher: Successfully connected to spark://Worker@172.19.0.9:34021
+25/09/18 16:13:37 INFO ResourceUtils: ==============================================================
+25/09/18 16:13:37 INFO CoarseGrainedExecutorBackend: Successfully registered with driver
+25/09/18 16:13:37 INFO Executor: Starting executor ID 0 on host 172.19.0.9
+25/09/18 16:13:37 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/09/18 16:13:37 INFO Executor: Java version 17.0.16
+25/09/18 16:13:37 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44737.
+25/09/18 16:13:37 INFO NettyBlockTransferService: Server created on 172.19.0.9:44737
+25/09/18 16:13:37 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/09/18 16:13:37 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(0, 172.19.0.9, 44737, None)
+25/09/18 16:13:37 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(0, 172.19.0.9, 44737, None)
+25/09/18 16:13:37 INFO BlockManager: Initialized BlockManager: BlockManagerId(0, 172.19.0.9, 44737, None)
+25/09/18 16:13:37 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/09/18 16:13:37 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@5907402e for default.
+25/09/18 16:13:41 INFO CoarseGrainedExecutorBackend: Got assigned task 0
+25/09/18 16:13:41 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/09/18 16:13:41 INFO TorrentBroadcast: Started reading broadcast variable 1 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:41 INFO TransportClientFactory: Successfully created connection to c3b154099eb7/172.19.0.13:45395 after 2 ms (0 ms spent in bootstraps)
+25/09/18 16:13:41 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.4 KiB, free 434.4 MiB)
+25/09/18 16:13:41 INFO TorrentBroadcast: Reading broadcast variable 1 took 134 ms
+25/09/18 16:13:41 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 14.6 KiB, free 434.4 MiB)
+25/09/18 16:13:42 INFO FileScanRDD: Reading File path: s3a://bronze/raw_data/tiki_products_20250918_161325.json, range: 0-591796, partition values: [empty row]
+25/09/18 16:13:42 INFO CodeGenerator: Code generated in 251.370553 ms
+25/09/18 16:13:42 INFO TorrentBroadcast: Started reading broadcast variable 0 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:42 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.3 KiB, free 434.3 MiB)
+25/09/18 16:13:42 INFO TorrentBroadcast: Reading broadcast variable 0 took 15 ms
+25/09/18 16:13:42 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 376.6 KiB, free 434.0 MiB)
+25/09/18 16:13:42 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+25/09/18 16:13:42 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+25/09/18 16:13:42 INFO MetricsSystemImpl: s3a-file-system metrics system started
+25/09/18 16:13:44 INFO MemoryStore: Block rdd_3_0 stored as values in memory (estimated size 214.6 KiB, free 433.8 MiB)
+25/09/18 16:13:44 INFO Executor: 1 block locks were not released by task 0.0 in stage 0.0 (TID 0)
+[rdd_3_0]
+25/09/18 16:13:44 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1416 bytes result sent to driver
+25/09/18 16:13:44 INFO CoarseGrainedExecutorBackend: Got assigned task 1
+25/09/18 16:13:44 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+25/09/18 16:13:44 INFO TorrentBroadcast: Started reading broadcast variable 2 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:44 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 15.0 KiB, free 433.8 MiB)
+25/09/18 16:13:44 INFO TorrentBroadcast: Reading broadcast variable 2 took 14 ms
+25/09/18 16:13:44 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 32.5 KiB, free 433.7 MiB)
+25/09/18 16:13:44 INFO BlockManager: Found block rdd_3_0 locally
+25/09/18 16:13:44 INFO CodeGenerator: Code generated in 9.149293 ms
+25/09/18 16:13:44 INFO CodeGenerator: Code generated in 25.682208 ms
+25/09/18 16:13:44 INFO CodeGenerator: Code generated in 13.770149 ms
+25/09/18 16:13:44 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2205 bytes result sent to driver
+25/09/18 16:13:45 INFO CoarseGrainedExecutorBackend: Got assigned task 2
+25/09/18 16:13:45 INFO Executor: Running task 0.0 in stage 3.0 (TID 2)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Updating epoch to 1 and clearing cache
+25/09/18 16:13:45 INFO TorrentBroadcast: Started reading broadcast variable 3 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO TorrentBroadcast: Reading broadcast variable 3 took 12 ms
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 12.5 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Don't have map outputs for shuffle 0, fetching them
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Doing the fetch; tracker endpoint = NettyRpcEndpointRef(spark://MapOutputTracker@c3b154099eb7:39291)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Got the map output locations
+25/09/18 16:13:45 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/18 16:13:45 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 32 ms
+25/09/18 16:13:45 INFO CodeGenerator: Code generated in 7.71996 ms
+25/09/18 16:13:45 INFO Executor: Finished task 0.0 in stage 3.0 (TID 2). 4031 bytes result sent to driver
+25/09/18 16:13:45 INFO CoarseGrainedExecutorBackend: Got assigned task 3
+25/09/18 16:13:45 INFO Executor: Running task 0.0 in stage 4.0 (TID 3)
+25/09/18 16:13:45 INFO TorrentBroadcast: Started reading broadcast variable 4 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 17.3 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO TorrentBroadcast: Reading broadcast variable 4 took 21 ms
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 37.6 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO BlockManager: Found block rdd_3_0 locally
+25/09/18 16:13:45 INFO CodeGenerator: Code generated in 11.16318 ms
+25/09/18 16:13:45 INFO CodeGenerator: Code generated in 26.010542 ms
+25/09/18 16:13:45 INFO CodeGenerator: Code generated in 21.570233 ms
+25/09/18 16:13:45 INFO Executor: Finished task 0.0 in stage 4.0 (TID 3). 2205 bytes result sent to driver
+25/09/18 16:13:45 INFO CoarseGrainedExecutorBackend: Got assigned task 4
+25/09/18 16:13:45 INFO Executor: Running task 0.0 in stage 6.0 (TID 4)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Updating epoch to 2 and clearing cache
+25/09/18 16:13:45 INFO TorrentBroadcast: Started reading broadcast variable 5 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO TorrentBroadcast: Reading broadcast variable 5 took 22 ms
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 12.5 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Don't have map outputs for shuffle 1, fetching them
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Doing the fetch; tracker endpoint = NettyRpcEndpointRef(spark://MapOutputTracker@c3b154099eb7:39291)
+25/09/18 16:13:45 INFO MapOutputTrackerWorker: Got the map output locations
+25/09/18 16:13:45 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/18 16:13:45 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/18 16:13:45 INFO Executor: Finished task 0.0 in stage 6.0 (TID 4). 3988 bytes result sent to driver
+25/09/18 16:13:45 INFO CoarseGrainedExecutorBackend: Got assigned task 5
+25/09/18 16:13:45 INFO Executor: Running task 0.0 in stage 7.0 (TID 5)
+25/09/18 16:13:45 INFO TorrentBroadcast: Started reading broadcast variable 6 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 14.9 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO TorrentBroadcast: Reading broadcast variable 6 took 15 ms
+25/09/18 16:13:45 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 32.3 KiB, free 433.7 MiB)
+25/09/18 16:13:45 INFO BlockManager: Found block rdd_3_0 locally
+25/09/18 16:13:45 INFO CodeGenerator: Code generated in 14.175773 ms
+25/09/18 16:13:45 INFO Executor: Finished task 0.0 in stage 7.0 (TID 5). 2248 bytes result sent to driver
+25/09/18 16:13:46 INFO CoarseGrainedExecutorBackend: Got assigned task 6
+25/09/18 16:13:46 INFO Executor: Running task 0.0 in stage 9.0 (TID 6)
+25/09/18 16:13:46 INFO MapOutputTrackerWorker: Updating epoch to 3 and clearing cache
+25/09/18 16:13:46 INFO TorrentBroadcast: Started reading broadcast variable 7 with 1 pieces (estimated total size 4.0 MiB)
+25/09/18 16:13:46 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 433.8 MiB)
+25/09/18 16:13:46 INFO TorrentBroadcast: Reading broadcast variable 7 took 14 ms
+25/09/18 16:13:46 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 12.5 KiB, free 433.8 MiB)
+25/09/18 16:13:46 INFO MapOutputTrackerWorker: Don't have map outputs for shuffle 2, fetching them
+25/09/18 16:13:46 INFO MapOutputTrackerWorker: Doing the fetch; tracker endpoint = NettyRpcEndpointRef(spark://MapOutputTracker@c3b154099eb7:39291)
+25/09/18 16:13:46 INFO MapOutputTrackerWorker: Got the map output locations
+25/09/18 16:13:46 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/18 16:13:46 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+25/09/18 16:13:46 INFO Executor: Finished task 0.0 in stage 9.0 (TID 6). 3995 bytes result sent to driver
+25/09/18 16:13:46 INFO CoarseGrainedExecutorBackend: Driver commanded a shutdown
+25/09/18 16:13:46 INFO MemoryStore: MemoryStore cleared
+25/09/18 16:13:46 INFO BlockManager: BlockManager stopped
+25/09/18 16:13:46 INFO ShutdownHookManager: Shutdown hook called
+25/09/18 16:13:46 INFO MetricsSystemImpl: Stopping s3a-file-system metrics system...
+25/09/18 16:13:46 INFO MetricsSystemImpl: s3a-file-system metrics system stopped.
+25/09/18 16:13:46 INFO MetricsSystemImpl: s3a-file-system metrics system shutdown complete.

@@ -1,0 +1,8 @@
+# sources.yml
+version: 2
+
+sources:
+  - name: ecommerce_silver
+    schema: silver
+    tables:
+      - name: products

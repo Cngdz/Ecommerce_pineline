@@ -1,0 +1,16 @@
+Spark Executor Command: "/usr/lib/jvm/java-17-openjdk-amd64/bin/java" "-cp" "/opt/spark/conf/:/opt/spark/jars/*" "-Xmx1024M" "-Dspark.network.timeout=600000" "-Dspark.driver.port=37827" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@4c49e80299c4:37827" "--executor-id" "0" "--hostname" "172.19.0.9" "--cores" "12" "--app-id" "app-20250918062017-0000" "--worker-url" "spark://Worker@172.19.0.9:40377" "--resourceProfileId" "0"
+========================================
+
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/18 06:20:20 INFO CoarseGrainedExecutorBackend: Started daemon with process name: 102@c347e1340bf5
+25/09/18 06:20:20 INFO SignalUtils: Registering signal handler for TERM
+25/09/18 06:20:20 INFO SignalUtils: Registering signal handler for HUP
+25/09/18 06:20:20 INFO SignalUtils: Registering signal handler for INT
+25/09/18 06:20:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/09/18 06:20:21 INFO SecurityManager: Changing view acls to: airflow
+25/09/18 06:20:21 INFO SecurityManager: Changing modify acls to: airflow
+25/09/18 06:20:21 INFO SecurityManager: Changing view acls groups to: 
+25/09/18 06:20:21 INFO SecurityManager: Changing modify acls groups to: 
+25/09/18 06:20:21 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY
+25/09/18 06:20:21 ERROR CoarseGrainedExecutorBackend: RECEIVED SIGNAL TERM
+/09/18 06:20:21 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow; groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY

@@ -1,12 +1,12 @@
 dbt_project:
   outputs:
     dev:
-      dbname: airflow
-      host: postgres
-      pass: airflow
-      port: 5432
-      schema: marts
+      type: trino
+      method: none
+      host: trino
+      port: 8080
+      user: cigi
+      catalog: nessie       # catalog Trino đã config
+      schema: gold           
       threads: 4
-      type: postgres
-      user: airflow
   target: dev

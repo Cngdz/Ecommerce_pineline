@@ -24,7 +24,7 @@
 # The following variables are supported:
 #
 # AIRFLOW_IMAGE_NAME           - Docker image name used to run Airflow.
-#                                Default: apache/airflow:3.0.4
+#                                Default: apache/airflow:3.0.6
 # AIRFLOW_UID                  - User ID in Airflow containers
 #                                Default: 50000
 # AIRFLOW_PROJ_DIR             - Base path to which all the files will be volumed.
@@ -49,10 +49,10 @@ x-airflow-common:
   # In order to add custom dependencies or upgrade provider distributions you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.0.4}
-  env_file:
-    - .env
-  # build: .
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.0.6}
+  build:
+    context: .
+    dockerfile: Dockerfile
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -74,16 +74,14 @@ x-airflow-common:
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     # The following line can be used to set a custom config file, stored in the local config folder
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-    PYTHONPATH: /opt/airflow:/opt/airflow/dags
-  
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/scripts:/opt/airflow/scripts 
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/dbt_project:/opt/airflow/dbt_project
-    - ${AIRFLOW_PROJ_DIR:-.}/scripts:/opt/airflow/scripts
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -95,8 +93,6 @@ x-airflow-common:
 services:
   postgres:
     image: postgres:13
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -339,6 +335,82 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+  # MinIO
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: minio_admin
+      MINIO_ROOT_PASSWORD: password123
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    restart: always
+    entrypoint: >
+      /bin/sh -c "
+      minio server /data --console-address ':9001' &
+      sleep 5;
+      mc alias set cigi http://localhost:9000 minio_admin password123;
+      mc mb cigi/lakehouse;
+      tail -f /dev/null"
+  # Service for Spark Master
+  spark-master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: spark-master
+    command: bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"
+    ports:
+      - "8081:8080" # Spark UI
+      - "7077:7077"
+    volumes:
+      - ./scripts:/opt/airflow/scripts
+    environment:
+      PYSPARK_PYTHON: python
+      PYSPARK_DRIVER_PYTHON: python
 
+
+  spark-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077"
+    depends_on:
+      - spark-master
+    volumes:
+      - ./scripts:/opt/airflow/scripts
+      - ./spark-worker-workdir:/opt/spark/work
+    environment:
+      PYSPARK_PYTHON: python
+      PYSPARK_DRIVER_PYTHON: python
+
+  trino:
+    image: trinodb/trino:latest
+    container_name: trino
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./trino/catalog:/etc/trino/catalog
+      - ./setup:/setup  
+
+  nessie-catalog:
+    image: projectnessie/nessie:0.76.6
+    container_name: nessie-catalog
+    ports:
+      - "19120:19120"
+  
 volumes:
   postgres-db-volume:
+  minio_data:
+  postgres-catalog-data:
+
+networks:
+  spark_airflow_net:
+    driver: bridge

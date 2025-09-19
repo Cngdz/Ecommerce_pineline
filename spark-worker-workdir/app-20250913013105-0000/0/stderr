@@ -1,0 +1,56 @@
+Spark Executor Command: "/usr/lib/jvm/java-17-openjdk-amd64/bin/java" "-cp" "/opt/spark/conf/:/opt/spark/jars/slf4j-api-2.0.16.jar:/opt/spark/jars/*" "-Xmx1024M" "-Dspark.driver.port=43331" "-Dspark.network.timeout=600000" "-Djava.net.preferIPv6Addresses=false" "-XX:+IgnoreUnrecognizedVMOptions" "--add-modules=jdk.incubator.vector" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.base/java.io=ALL-UNNAMED" "--add-opens=java.base/java.net=ALL-UNNAMED" "--add-opens=java.base/java.nio=ALL-UNNAMED" "--add-opens=java.base/java.util=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent=ALL-UNNAMED" "--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.ref=ALL-UNNAMED" "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED" "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED" "--add-opens=java.base/sun.security.action=ALL-UNNAMED" "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED" "--add-opens=java.security.jgss/sun.security.krb5=ALL-UNNAMED" "-Djdk.reflect.useDirectMethodHandle=false" "-Dio.netty.tryReflectionSetAccessible=true" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@6e1d4cb3de14:43331" "--executor-id" "0" "--hostname" "172.19.0.5" "--cores" "12" "--app-id" "app-20250913013105-0000" "--worker-url" "spark://Worker@172.19.0.5:37877" "--resourceProfileId" "0"
+========================================
+
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/13 01:31:07 INFO CoarseGrainedExecutorBackend: Started daemon with process name: 102@0cabd055433f
+25/09/13 01:31:07 INFO SignalUtils: Registering signal handler for TERM
+25/09/13 01:31:07 INFO SignalUtils: Registering signal handler for HUP
+25/09/13 01:31:07 INFO SignalUtils: Registering signal handler for INT
+25/09/13 01:31:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/09/13 01:31:08 INFO SecurityManager: Changing view acls to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing modify acls to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing view acls groups to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing modify acls groups to: airflow
+25/09/13 01:31:08 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/13 01:31:08 INFO TransportClientFactory: Successfully created connection to 6e1d4cb3de14/172.19.0.11:43331 after 67 ms (0 ms spent in bootstraps)
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/13 01:31:08 INFO SecurityManager: Changing view acls to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing modify acls to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing view acls groups to: airflow
+25/09/13 01:31:08 INFO SecurityManager: Changing modify acls groups to: airflow
+25/09/13 01:31:08 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/13 01:31:08 INFO TransportClientFactory: Successfully created connection to 6e1d4cb3de14/172.19.0.11:43331 after 3 ms (0 ms spent in bootstraps)
+25/09/13 01:31:08 INFO DiskBlockManager: Created local directory at /tmp/spark-06f05210-0fdb-4f07-a838-42f05e47b9ae/executor-a9e9ed28-da0f-45d0-a5d6-6b68be1802a2/blockmgr-49352a52-3120-4a9c-b9e3-7abd7245c59c
+25/09/13 01:31:09 INFO CoarseGrainedExecutorBackend: Connecting to driver: spark://CoarseGrainedScheduler@6e1d4cb3de14:43331
+25/09/13 01:31:09 INFO SecurityManager: Changing view acls to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing modify acls to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing view acls groups to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing modify acls groups to: airflow
+25/09/13 01:31:09 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/13 01:31:09 INFO WorkerWatcher: Connecting to worker spark://Worker@172.19.0.5:37877
+25/09/13 01:31:09 INFO TransportClientFactory: Successfully created connection to /172.19.0.5:37877 after 3 ms (0 ms spent in bootstraps)
+25/09/13 01:31:09 INFO WorkerWatcher: Successfully connected to spark://Worker@172.19.0.5:37877
+25/09/13 01:31:09 INFO ResourceUtils: ==============================================================
+25/09/13 01:31:09 INFO ResourceUtils: No custom resources configured for spark.executor.
+25/09/13 01:31:09 INFO ResourceUtils: ==============================================================
+25/09/13 01:31:09 INFO CoarseGrainedExecutorBackend: Successfully registered with driver
+25/09/13 01:31:09 INFO Executor: Starting executor ID 0 on host 172.19.0.5
+25/09/13 01:31:09 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+25/09/13 01:31:09 INFO Executor: Java version 17.0.16
+25/09/13 01:31:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40915.
+25/09/13 01:31:09 INFO NettyBlockTransferService: Server created on 172.19.0.5:40915
+25/09/13 01:31:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/09/13 01:31:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(0, 172.19.0.5, 40915, None)
+25/09/13 01:31:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(0, 172.19.0.5, 40915, None)
+25/09/13 01:31:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(0, 172.19.0.5, 40915, None)
+25/09/13 01:31:09 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/09/13 01:31:09 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4529ddba for default.
+25/09/13 01:31:09 INFO SecurityManager: Changing view acls to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing modify acls to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing view acls groups to: airflow
+25/09/13 01:31:09 INFO SecurityManager: Changing modify acls groups to: airflow
+25/09/13 01:31:09 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: airflow groups with view permissions: EMPTY; users with modify permissions: airflow; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/13 01:31:11 INFO CoarseGrainedExecutorBackend: Driver commanded a shutdown
+25/09/13 01:31:11 ERROR CoarseGrainedExecutorBackend: RECEIVED SIGNAL TERM
+tdown
