@@ -22,7 +22,7 @@ The pipeline consists of several stages:
   - [Project Structure](#project-structure)
   - [Installation ⚙️](#installation-️)
   - [Usage 💡](#usage-)
-    - [Real-World Use Case](#real-world-use-case)
+  - [Real-World Use Case](#real-world-use-case)
   - [Contributing 🙌](#contributing-)
   - [Footer 📜](#footer-)
 
