@@ -100,22 +100,22 @@ The pipeline consists of several stages:
 ## Usage 💡
 1. **Run the Airflow DAG:**
    - Access the `Airflow UI` using `http://localhost:8080/` with the *username: **airflow***, *password: **airflow***
-     ![image](assets/Screenshot 2025-09-20 101817.png)
+     ![image](assets/Screenshot2025-09-20101817.png)
    - Connect the airflow to spark-master by click in the UI : **Admin -> Connection -> Add Connection** :
      - `Connection ID:` **spark_default**
      - `Connection Type:` **Spark**
      - `Host:` **spark://spark-master**
      - `Port:` **7077**
-       ![image](assets/Screenshot 2025-09-20 102100.png)
-       ![image](assets/Screenshot 2025-09-20 104310.png)
+       ![image](assets/Screenshot2025-09-20102100.png)
+       ![image](assets/Screenshot2025-09-20104310.png)
    - Click **Dags -> Trigger** to run the pineline
-     ![image](assets/Screenshot 2025-09-20 102553.png)
+     ![image](assets/Screenshot2025-09-20102553.png)
 2. **Access MinIO:**
    - Access the `MinIO UI` using `http://localhost:9001/` with the *username: **minio_admin***, *password: **password123*** to view the stored data
-     ![image](assets/Screenshot 2025-09-20 102956.png)
-     ![image](assets/Screenshot 2025-09-20 103014.png)
-     ![image](assets/Screenshot 2025-09-20 103212.png)
-     ![image](assets/Screenshot 2025-09-20 103240.png)
+     ![image](assets/Screenshot2025-09-20102956.png)
+     ![image](assets/Screenshot2025-09-20103014.png)
+     ![image](assets/Screenshot2025-09-20103212.png)
+     ![image](assets/Screenshot2025-09-20103240.png)
 
 
 
